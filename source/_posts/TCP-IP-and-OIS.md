@@ -68,7 +68,7 @@ OSI 参考模型（Open System Interconnection Reference Model，开放式系统
   - BOOTP（Boot Protocol，启动协议），应用于无盘设备。
   - NTP（Network Time Protocol，网络时间协议），用于网络同步。
   - DHCP（Dynamic Host Configuration Protocol，动态主机配置协议），动态配置 IP 地址。
-    其他：
+- 其他：
   - DNS（Domain Name Service，域名服务），用于完成地址查找，邮件转发等工作（运行在 TCP 和 UDP 协议上）。
   - ECHO（Echo Protocol，回绕协议），用于查错及测量应答时间（运行在 TCP 和 UDP 协议上）。
   - SNMP（Simple Network Management Protocol，简单网络管理协议），用于网络信息的收集和网络管理。
