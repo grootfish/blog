@@ -52,23 +52,27 @@ a.fill();
 ### 不改变原数组的方法（8 个）
 
 ```javascript
-let a = [1,2,3]
-a.slice(begin,end);//浅拷贝数组元素
-a.join();//数组转字符串
-a.toLocaleString()
-a.toString()
-a.concat()
-a.indexOf() //查找数组是否存在某个元素，返回下标
-a.lastIndexOf()
+let a = [1, 2, 3];
+a.slice(begin, end); //浅拷贝数组元素
+a.join(); //数组转字符串
+a.toLocaleString();
+a.toString();
+a.concat();
+a.indexOf(); //查找数组是否存在某个元素，返回下标
+a.lastIndexOf();
 //定义: 方法返回指定元素,在数组中的最后一个的索引，如果不存在则返回 -1。（从数组后面往前查找）
 
 //ES6 扩展运算符 ... 合并数组；
 let a = [2, 3, 4, 5];
-let b = [ 4,...a, 4, 4];//[4,2,3,4,5,4,4]
+let b = [4, ...a, 4, 4]; //[4,2,3,4,5,4,4]
 
 //ES7 includes() 查找数组是否包含某个元素 返回布尔值
-a.includes(searchElement,fromIndex=0);
-### 遍历方法（12个）
+a.includes(searchElement, (fromIndex = 0));
+```
+
+### 遍历方法（12 个）
+
+```javascript
 array.forEach(function(currentValue, index, arr), thisValue);
 array.every(function(currentValue, index, arr), thisValue);
 array.some(function(currentValue, index, arr), thisValue);
