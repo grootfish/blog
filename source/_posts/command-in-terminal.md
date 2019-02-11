@@ -16,7 +16,7 @@ description: terminal
 
 - `ls`显示在存放在相应文件系统下的所有主要目录。
 
-  ```bash
+  ```
   ls /applications
   ls -a #显示所有隐藏的文件
   ```
@@ -24,7 +24,7 @@ description: terminal
 - `cat` 查看文件内容
 - `ps` 命令用于查看系统的进程状态
 
-  ```bash
+  ```
   ps -a
   ps -x
   # USER 所属用户
@@ -43,7 +43,7 @@ description: terminal
 
 - `cd` 用来跳转（或“更改”）到一个目录的
 
-  ```bash
+  ```
         cd Gym\ Playlist # 空格需要转译
   ```
 
@@ -58,7 +58,7 @@ description: terminal
 
 - sudo 命令用于以 root 管理员权限运行某命令
 
-  ```bash
+  ```
   sudo poweroff # 使用 root 权限执行 poweroff 命令
   su - # 切换到 root 账户
   sudo !! #以 root 权限运行上一条命令
@@ -66,7 +66,7 @@ description: terminal
 
 - poweroff 用于关闭系统,reboot 用于重启系统
 
-  ```bash
+  ```
   poweroff #关闭系统
 
   reboot #重启系统·
@@ -76,14 +76,14 @@ description: terminal
 
 - echo 命令用于将字符串和变量输出到屏幕上。
 
-  ```bash
+  ```
   echo hi # 输出字符串
   echo $SHELL # 输出变量
   ```
 
 - cal 命令用于输出一个日历
 
-  ```bash
+  ```
   cal # 输出这个月日历
   cal 2018 # 输出 2018 年日历
   cal 6 2018 # 输出 2018 年 6 月日历
@@ -91,7 +91,7 @@ description: terminal
 
 - date 命令用于显示或设置系统的时间
 
-  ```bash
+  ```
   date # 显示当前日期
   date -s "20180428 7:15:00" # 设置指定日期
   date "+%j" # 显示当天是当年的第几天
@@ -133,4 +133,3 @@ description: terminal
 - 交换光标处文本：ctrl + t
 - 清屏 1：command + r
 - 清屏 2：ctrl + l
-
