@@ -1,6 +1,7 @@
 ---
 title: hooks 已经到来
 tags: [javascript,react]
+categories: [React]
 description: react 知识整理
 ---
 ## Hooks 已经到来
