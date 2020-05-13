@@ -1,7 +1,6 @@
 ---
 title: 在 React 中使用计算属性
 tags: [javascript,React]
-date: 2018-11-07 16:46:30
 categories: [React]
 description: 在 React 中使用计算属性
 ---
