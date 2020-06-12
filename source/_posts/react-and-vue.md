@@ -39,25 +39,25 @@ description: 框架
 –	Next.js （React）& Nuxt.js (Vue)
 ## 生命周期
 –	Vue
-–	初始化阶段 beforeCreate → created → beforeMount→mounted
-–	更新阶段 beforeUpdated → updated
-–	销毁阶段 beforeDestroy → destoryed
-–	keep-alive 标签 active → deactive
+  –	初始化阶段 beforeCreate → created → beforeMount→mounted
+  –	更新阶段 beforeUpdated → updated
+  –	销毁阶段 beforeDestroy → destoryed
+  –	keep-alive 标签 active → deactive
 –	React
-–	初始化阶段 constructor → componentWillMount → shouldComponentUpdate → render → componentDidMount
-–	更新阶段 getDerivedStateFromProps(componentWillReceiveProps) → shouldComponentUpdate → componentWillUpdate → render → componentDidUpdate
-–	销毁阶段 componentWillUnmount
+  –	初始化阶段 constructor → componentWillMount → shouldComponentUpdate → render → componentDidMount
+  –	更新阶段 getDerivedStateFromProps(componentWillReceiveProps) → shouldComponentUpdate → componentWillUpdate → render → componentDidUpdate
+  –	销毁阶段 componentWillUnmount
 ## 状态管理
 –	vuex 的流程
-1.	将需要共享的状态挂载到state上：this.$store.state来调用，vuex提供了mapState辅助函数，帮助我们在组件中获取并使用vuex的store中保存的状态。
-2.	我们通过getters来创建状态：通过this.$store.getters来调用
-3.	使用mutations来更改state：通过this.$store.commit来调用
-4.	使用actions来处理异步操作：this.$store.dispatch来调用
-–	rudux 的流程
-1.	创建store： 从redux工具中取出createStore去生成一个store。
-2.	创建一个reducer，然后将其传入到createStore中辅助store的创建。 reducer是一个纯函数，接收当前状态和action，返回一个状态，返回什么，store的状态就是什么，需要注意的是，不能直接操作当前状态，而是需要返回一个新的状态。 想要给store创建默认状态其实就是给reducer一个参数创建默认值。
-3.	组件通过调用store.getState方法来使用store中的state，挂载在了自己的状态上。
-4.	组件产生用户操作，调用actionCreator的方法创建一个action，利用store.dispatch方法传递给reducer
-5.	reducer对action上的标示性信息做出判断后对新状态进行处理，然后返回新状态
-6.	我们可以在组件中，利用store.subscribe方法去订阅数据的变化，也就是可以传入一个函数，当数据变化的时候，传入的函数会执行，在这个函数中让组件去获取最新的状态。
+  1.	将需要共享的状态挂载到state上：this.$store.state来调用，vuex提供了mapState辅助函数，帮助我们在组件中获取并使用vuex的store中保存的状态。
+  2.	我们通过getters来创建状态：通过this.$store.getters来调用
+  3.	使用mutations来更改state：通过this.$store.commit来调用
+  4.	使用actions来处理异步操作：this.$store.dispatch来调用
+–	redux 的流程
+  1.	创建store： 从redux工具中取出createStore去生成一个store。
+  2.	创建一个reducer，然后将其传入到createStore中辅助store的创建。 reducer是一个纯函数，接收当前状态和action，返回一个状态，返回什么，store的状态就是什么，需要注意的是，不能直接操作当前状态，而是需要返回一个新的状态。 想要给store创建默认状态其实就是给reducer一个参数创建默认值。
+  3.	组件通过调用store.getState方法来使用store中的state，挂载在了自己的状态上。
+  4.	组件产生用户操作，调用actionCreator的方法创建一个action，利用store.dispatch方法传递给reducer
+  5.	reducer对action上的标示性信息做出判断后对新状态进行处理，然后返回新状态
+  6.	我们可以在组件中，利用store.subscribe方法去订阅数据的变化，也就是可以传入一个函数，当数据变化的时候，传入的函数会执行，在这个函数中让组件去获取最新的状态。
 
