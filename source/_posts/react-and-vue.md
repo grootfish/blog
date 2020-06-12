@@ -13,7 +13,7 @@ description: 框架
 -	vue-cli & create-react-app 前者提供多个可选模版，扩展性强。后者提供默认选项，复杂度低
 ## 数据绑定
 -	Vue采用数据劫持&发布-订阅模式的方式，vue在创建vm的时候，会将数据配置在实例当中，然后通过Object.defineProperty对数据进行操作，为数据动态添加了getter与setter方法，当获取数据的时候会触发对应的getter方法，当设置数据的时候会触发对应的setter方法，从而进一步触发vm的watcher方法，然后数据更改，vm则会进一步触发视图更新操作。
--	react是单向数据流，组件实例状态只能通过setState来进行更改。调用setState更新this.state，它不是马上就会生效的，它是异步的。所以不要认为调用完setState后可以立马获取到最新的值。多个顺序执行的setState不是同步的一个接着一个的执行，会加入一个异步队列，然后最后一起执行，即批处理
+-	React是单向数据流，组件实例状态只能通过setState来进行更改。调用setState更新this.state，它不是马上就会生效的，它是异步的。所以不要认为调用完setState后可以立马获取到最新的值。多个顺序执行的setState不是同步的一个接着一个的执行，会加入一个异步队列，然后最后一起执行，即批处理
 ## diff 算法
 -	vue 中 diff 算法实现流程
   1.	在内存中构建虚拟 DOM
