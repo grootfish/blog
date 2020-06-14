@@ -6,7 +6,10 @@ tags: [javascript]
 categories: [javascript,前端基础]
 description: 前端基础
 ---
-## 六、还有哪些引用类型
+# 类型转换
+- - - -
+
+## 引用类型
 
 > 在`ECMAScript`中，引用类型是一种数据结构，用于将数据和功能组织在一起。
 
@@ -14,18 +17,18 @@ description: 前端基础
 
 在`ECMAScript`关于类型的定义中，只给出了`Object`类型，实际上，我们平时使用的很多引用类型的变量，并不是由`Object`构造的，但是它们原型链的终点都是`Object`，这些类型都属于引用类型。
 
-- [ ] `Array` 数组
-- [ ] `Date` 日期
-- [ ] `RegExp` 正则
-- [ ] `Function` 函数
+- `Array` 数组
+- `Date` 日期
+- `RegExp` 正则
+- `Function` 函数
 
 ### 6.1 包装类型
 
 为了便于操作基本类型值，`ECMAScript`还提供了几个特殊的引用类型，他们是基本类型的包装类型：
 
-- [ ] `Boolean`
-- [ ] `Number`
-- [ ] `String`
+- `Boolean`
+- `Number`
+- `String`
 
 注意包装类型和原始类型的区别：
 
@@ -47,9 +50,9 @@ console.log(name.color); // undefined
 
 ### 6.2 装箱和拆箱
 
-- [ ] 装箱转换：把基本类型转换为对应的包装类型
+- 装箱转换：把基本类型转换为对应的包装类型
 
-- [ ] 拆箱操作：把引用类型转换为基本类型
+- 拆箱操作：把引用类型转换为基本类型
 
 既然原始类型不能扩展属性和方法，那么我们是如何使用原始类型调用方法的呢？
 
@@ -62,16 +65,16 @@ var name2 = name.substring(2);
 
 实际上发生了以下几个过程：
 
-- [ ] 创建一个`String`的包装类型实例
-- [ ] 在实例上调用`substring`方法
-- [ ] 销毁实例
+- 创建一个`String`的包装类型实例
+- 在实例上调用`substring`方法
+- 销毁实例
 
 也就是说，我们使用基本类型调用方法，就会自动进行装箱和拆箱操作，相同的，我们使用`Number`和`Boolean`类型时，也会发生这个过程。
 
 从引用类型到基本类型的转换，也就是拆箱的过程中，会遵循`ECMAScript规范`规定的`toPrimitive`原则，一般会调用引用类型的`valueOf`和`toString`方法，你也可以直接重写`toPeimitive`方法。一般转换成不同类型的值遵循的原则不同，例如：
 
-- [ ] 引用类型转换为`Number`类型，先调用`valueOf`，再调用`toString`
-- [ ] 引用类型转换为`String`类型，先调用`toString`，再调用`valueOf`
+- 引用类型转换为`Number`类型，先调用`valueOf`，再调用`toString`
+- 引用类型转换为`String`类型，先调用`toString`，再调用`valueOf`
 
 若`valueOf`和`toString`都不存在，或者没有返回基本类型，则抛出`TypeError`异常。
 
@@ -149,9 +152,9 @@ false
 
 注意`+`是个例外，执行`+`操作符时：
 
-- [ ] 1.当一侧为`String`类型，被识别为字符串拼接，并会优先将另一侧转换为字符串类型。
-- [ ] 2.当一侧为`Number`类型，另一侧为原始类型，则将原始类型转换为`Number`类型。
-- [ ] 3.当一侧为`Number`类型，另一侧为引用类型，将引用类型和`Number`类型转换成字符串后拼接。
+- 1.当一侧为`String`类型，被识别为字符串拼接，并会优先将另一侧转换为字符串类型。
+- 2.当一侧为`Number`类型，另一侧为原始类型，则将原始类型转换为`Number`类型。
+- 3.当一侧为`Number`类型，另一侧为引用类型，将引用类型和`Number`类型转换成字符串后拼接。
 
 ```js
 123 + '123' // 123123   （规则1）
@@ -166,7 +169,7 @@ false
 
 使用`==`时，若两侧类型相同，则比较结果和`===`相同，否则会发生隐式转换，使用`==`时发生的转换可以分为几种不同的情况（只考虑两侧类型不同）：
 
-- [ ] 1.NaN
+- **1.NaN**
 
 `NaN`和其他任何类型比较永远返回`false`(包括和他自己)。
 
@@ -174,7 +177,7 @@ false
 NaN == NaN // false
 ```
 
-- [ ] 2.Boolean
+- **2.Boolean**
 
 `Boolean`和其他任何类型比较，`Boolean`首先被转换为`Number`类型。
 
@@ -192,7 +195,7 @@ undefined == false // false
 null == false // false
 ```
 
-- [ ] 3.String和Number
+- **3.String和Number**
 
 `String`和`Number`比较，先将`String`转换为`Number`类型。
 
@@ -201,7 +204,7 @@ null == false // false
 '' == 0 // true
 ```
 
-- [ ] 4.null和undefined
+- **4.null和undefined**
 
 `null == undefined`比较结果是`true`，除此之外，`null、undefined`和其他任何结果的比较值都为`false`。
 
@@ -215,7 +218,7 @@ undefined == 0 // false
 undefined == false // false
 ```
 
-- [ ] 5.原始类型和引用类型
+- **5.原始类型和引用类型**
 
 当原始类型和引用类型做比较时，对象类型会依照`ToPrimitive`规则转换为原始类型:
 
@@ -259,7 +262,7 @@ const a = {
 
 ### 8.1 typeof
 
-适用场景
+**适用场景**
 
 `typeof`操作符可以准确判断一个变量是否为下面几个原始类型：
 
@@ -277,7 +280,7 @@ typeof undefined  // undefined
 typeof function(){}  // function
 ```
 
-不适用场景
+**不适用场景**
 
 当你用`typeof`来判断引用类型时似乎显得有些乏力了：
 
@@ -304,11 +307,11 @@ new RegExp() instanceof RegExp // true
 
 我们先来回顾下原型链的几条规则：
 
-- [ ] 1.所有引用类型都具有对象特性，即可以自由扩展属性
-- [ ] 2.所有引用类型都具有一个`__proto__`（隐式原型）属性，是一个普通对象
-- [ ] 3.所有的函数都具有`prototype`（显式原型）属性，也是一个普通对象
-- [ ] 4.所有引用类型`__proto__`值指向它构造函数的`prototype`
-- [ ] 5.当试图得到一个对象的属性时，如果变量本身没有这个属性，则会去他的`__proto__`中去找
+- 1.所有引用类型都具有对象特性，即可以自由扩展属性
+- 2.所有引用类型都具有一个`__proto__`（隐式原型）属性，是一个普通对象
+- 3.所有的函数都具有`prototype`（显式原型）属性，也是一个普通对象
+- 4.所有引用类型`__proto__`值指向它构造函数的`prototype`
+- 5.当试图得到一个对象的属性时，如果变量本身没有这个属性，则会去他的`__proto__`中去找
 
 `[] instanceof Array `实际上是判断`Array.prototype`是否在`[]`的原型链上。
 
@@ -369,21 +372,21 @@ isFunction: function( obj ) {
 
 ## 参考
 
-- [ ] http://www.ecma-international.org/ecma-262/9.0/index.html
-- [ ] https://while.dev/articles/explaining-truthy-falsy-null-0-and-undefined-in-typescript/
-- [ ] https://github.com/mqyqingfeng/Blog/issues/28
-- [ ] https://juejin.im/post/5bc5c752f265da0a9a399a62
-- [ ] https://juejin.im/post/5bbda2b36fb9a05cfd27f55e
-- [ ] 《JS高级程序设计》
+- http://www.ecma-international.org/ecma-262/9.0/index.html
+- https://while.dev/articles/explaining-truthy-falsy-null-0-and-undefined-in-typescript/
+- https://github.com/mqyqingfeng/Blog/issues/28
+- https://juejin.im/post/5bc5c752f265da0a9a399a62
+- https://juejin.im/post/5bbda2b36fb9a05cfd27f55e
+- 《JS高级程序设计》
 
 ## 小结
 
 希望你阅读本篇文章后可以达到以下几点：
 
-- [ ] 了解`JavaScript`中的变量在内存中的具体存储形式，可对应实际场景
-- [ ] 搞懂小数计算不精确的底层原因
-- [ ] 了解可能发生隐式类型转换的场景以及转换原则
-- [ ] 掌握判断`JavaScript`数据类型的方式和底层原理
+- 了解`JavaScript`中的变量在内存中的具体存储形式，可对应实际场景
+- 搞懂小数计算不精确的底层原因
+- 了解可能发生隐式类型转换的场景以及转换原则
+- 掌握判断`JavaScript`数据类型的方式和底层原理
 
 文中如有错误，欢迎在评论区指正，如果这篇文章帮助到了你，欢迎点赞和关注。
 #学习/前端
