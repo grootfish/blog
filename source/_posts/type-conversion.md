@@ -123,8 +123,7 @@ console.log( typeof num.toString() ); //string
 
 如果发生了隐式转换，那么各种类型互转符合下面的规则：
 
-
-![](http://www.conardli.top/img/bl/bl_8_convert.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrw0r9brsj30yr0u0q97.jpg)
 
 ### 7.2 if语句和逻辑语句
 
@@ -339,8 +338,7 @@ obj.toString() // [object Object]
 
 我们可以直接调用`Object`原型上未被覆盖的`toString()`方法，使用`call`来改变`this`指向来达到我们想要的效果。
 
-
-![](http://www.conardli.top/img/bl/bl_9_jc.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrw023janj30su0q0ah3.jpg)
 
 ### 8.4 jquery
 

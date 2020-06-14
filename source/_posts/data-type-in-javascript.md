@@ -66,14 +66,13 @@ console.log(str);  // ConardLi6
 * 由系统自动分配存储空间
 
 `JavaScript`中的原始类型的值被直接存储在栈中，在变量定义时，栈就为其分配好了内存空间。
-![](http://www.conardli.top/img/bl/bl_1_stack.png)
-![](&&&SFLOCALFILEPATH&&&bl_1_stack.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrw1g8rglj31560g8wfi.jpg)
 
 由于栈中的内存空间的大小是固定的，那么注定了存储在栈中的变量就是不可变的。
 
 在上面的代码中，我们执行了`str += '6'`的操作，实际上是在栈中又开辟了一块内存空间用于存储`'ConardLi6'`，然后将变量`str`指向这块空间，所以这并不违背`不可变性的`特点。
-![](http://www.conardli.top/img/bl/bl_2_stack.png)
-![](&&&SFLOCALFILEPATH&&&bl_2_stack.png)
+
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrvxi919dj317o0hg40e.jpg)
 
 ### 2.2 引用类型
 
@@ -93,8 +92,8 @@ var obj3 = function(){...}
 var obj4 = [1,2,3,4,5,6,7,8,9]
 ```
 
-![](http://www.conardli.top/img/bl/bl_3_heap.png)
-![](&&&SFLOCALFILEPATH&&&bl_3_heap.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrw2393h2j31se0phn1z.jpg)
+
 
 > 由于内存是有限的，这些变量不可能一直在内存中占用资源，这里推荐下这篇文章[JavaScript中的垃圾回收和内存泄漏](https://juejin.im/post/5cb33660e51d456e811d2687)，这里告诉你`JavaScript`是如何进行垃圾回收以及可能会发生内存泄漏的一些场景。
 
@@ -132,8 +131,8 @@ name2 = 'code秘密花园';
 console.log(name); // ConardLi;
 ```
 
-![](http://www.conardli.top/img/bl/bl_4_copy.png)
-![](&&&SFLOCALFILEPATH&&&bl_4_copy.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrw2kaadsj31ii0me406.jpg)
+
 
 内存中有一个变量`name`，值为`ConardLi`。我们从变量`name`复制出一个变量`name2`，此时在内存中创建了一个块新的空间用于存储`ConardLi`，虽然两者值是相同的，但是两者指向的内存空间完全不同，这两个变量参与任何操作都互不影响。
 
@@ -146,15 +145,14 @@ obj2.name = 'code秘密花园';
 console.log(obj.name); // code秘密花园
 ```
 
-
-![](http://www.conardli.top/img/bl/bl_5_copy.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrw3oecc2j31oh0owq6n.jpg)
 
 当我们复制引用类型的变量时，实际上复制的是栈中存储的地址，所以复制出来的`obj2`实际上和`obj`指向的堆中同一个对象。因此，我们改变其中任何一个变量的值，另一个变量都会受到影响，这就是为什么会有深拷贝和浅拷贝的原因。
 
 ### 2.4 比较
 
 当我们在对两个变量进行比较时，不同类型的变量的表现是不同的：
-![](http://www.conardli.top/img/bl/bl_6_compare.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrw422fe8j31om0qc0wn.jpg)
 
 ```js
 var name = 'ConardLi';
@@ -220,8 +218,7 @@ console.log(obj.name); // ConardLi
 
 ## 三、分不清的null和undefined
 
-
-![](http://www.conardli.top/img/bl/bl_7_null.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrw4hqvyxj30wu0dbq57.jpg)
 
 
 在原始类型中，有两个类型`Null`和`Undefined`，他们都有且仅有一个值，`null`和`undefined`，并且他们都代表无和空，我一般这样区分它们：
