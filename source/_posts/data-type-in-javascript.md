@@ -5,38 +5,24 @@ categories: [javascript]
 description: Javascript 中的数据类型
 ---
 
-## 导读
-
-变量和类型是学习`JavaScript`最先接触到的东西，但是往往看起来最简单的东西往往还隐藏着很多你不了解、或者容易犯错的知识，比如下面几个问题：
-
-- [ ] `JavaScript`中的变量在内存中的具体存储形式是什么？
-- [ ] `0.1+0.2`为什么不等于`0.3`?发生小数计算错误的具体原因是什么？
-- [ ] `Symbol`的特点，以及实际应用场景是什么？
-- [ ] `[] == ![]`、`[undefined] == false`为什么等于`true`?代码中何时会发生隐式类型转换？转换的规则是什么？
-- [ ] 如何精确的判断变量的类型？
-
-如果你还不能很好的解答上面的问题，那说明你还没有完全掌握这部分的知识，那么请好好阅读下面的文章吧。
-
-本文从底层原理到实际应用详细介绍了`JavaScript`中的变量和类型相关知识。
-
 ## 一、JavaScript数据类型
 
 [ECMAScript标准](http://www.ecma-international.org/ecma-262/9.0/index.html)规定了`7`种数据类型，其把这`7`种数据类型又分为两种：原始类型和对象类型。
 
-原始类型
+**原始类型**
 
-- [ ] `Null`：只包含一个值：`null`
-- [ ] `Undefined`：只包含一个值：`undefined`
-- [ ] `Boolean`：包含两个值：`true`和`false`
-- [ ] `Number`：整数或浮点数，还有一些特殊值（`-Infinity`、`+Infinity`、`NaN`）
-- [ ] `String`：一串表示文本值的字符序列
-- [ ] `Symbol`：一种实例是唯一且不可改变的数据类型
+* `Null`：只包含一个值：`null`
+* `Undefined`：只包含一个值：`undefined`
+* `Boolean`：包含两个值：`true`和`false`
+* `Number`：整数或浮点数，还有一些特殊值（`-Infinity`、`+Infinity`、`NaN`）
+* `String`：一串表示文本值的字符序列
+* `Symbol`：一种实例是唯一且不可改变的数据类型
 
 (在`es10`中加入了第七种原始类型`BigInt`，现已被最新`Chrome`支持)
 
-对象类型
+**对象类型**
 
-- [ ] `Object`：自己分一类丝毫不过分，除了常用的`Object`，`Array`、`Function`等都属于特殊的对象
+* `Object`：自己分一类丝毫不过分，除了常用的`Object`，`Array`、`Function`等都属于特殊的对象
 
 ## 二、为什么区分原始类型和对象类型
 
@@ -74,31 +60,29 @@ console.log(str);  // ConardLi6
 
 栈内存：
 
-- [ ] 存储的值大小固定
-- [ ] 空间较小
-- [ ] 可以直接操作其保存的变量，运行效率高
-- [ ] 由系统自动分配存储空间
+* 存储的值大小固定
+* 空间较小
+* 可以直接操作其保存的变量，运行效率高
+* 由系统自动分配存储空间
 
 `JavaScript`中的原始类型的值被直接存储在栈中，在变量定义时，栈就为其分配好了内存空间。
-
-
 ![](http://www.conardli.top/img/bl/bl_1_stack.png)
+![](&&&SFLOCALFILEPATH&&&bl_1_stack.png)
 
 由于栈中的内存空间的大小是固定的，那么注定了存储在栈中的变量就是不可变的。
 
 在上面的代码中，我们执行了`str += '6'`的操作，实际上是在栈中又开辟了一块内存空间用于存储`'ConardLi6'`，然后将变量`str`指向这块空间，所以这并不违背`不可变性的`特点。
-
-
 ![](http://www.conardli.top/img/bl/bl_2_stack.png)
+![](&&&SFLOCALFILEPATH&&&bl_2_stack.png)
 
 ### 2.2 引用类型
 
 堆内存：
 
-- [ ] 存储的值大小不定，可动态调整
-- [ ] 空间较大，运行效率低
-- [ ] 无法直接操作其内部存储，使用引用地址读取
-- [ ] 通过代码进行分配空间
+* 存储的值大小不定，可动态调整
+* 空间较大，运行效率低
+* 无法直接操作其内部存储，使用引用地址读取
+* 通过代码进行分配空间
 
 相对于上面具有不可变性的原始类型，我习惯把对象称为引用类型，引用类型的值实际存储在堆内存中，它在栈中只存储了一个固定长度的地址，这个地址指向堆内存中的值。
 
@@ -109,8 +93,8 @@ var obj3 = function(){...}
 var obj4 = [1,2,3,4,5,6,7,8,9]
 ```
 
-
 ![](http://www.conardli.top/img/bl/bl_3_heap.png)
+![](&&&SFLOCALFILEPATH&&&bl_3_heap.png)
 
 > 由于内存是有限的，这些变量不可能一直在内存中占用资源，这里推荐下这篇文章[JavaScript中的垃圾回收和内存泄漏](https://juejin.im/post/5cb33660e51d456e811d2687)，这里告诉你`JavaScript`是如何进行垃圾回收以及可能会发生内存泄漏的一些场景。
 
@@ -127,13 +111,13 @@ console.log(obj4); // []
 
 以数组为例，它的很多方法都可以改变它自身。
 
-- [ ] `pop()` 删除数组最后一个元素，如果数组为空，则不改变数组，返回undefined，改变原数组，返回被删除的元素
-- [ ] `push()`向数组末尾添加一个或多个元素，改变原数组，返回新数组的长度
-- [ ] `shift()`把数组的第一个元素删除，若空数组，不进行任何操作，返回undefined,改变原数组，返回第一个元素的值
-- [ ] `unshift()`向数组的开头添加一个或多个元素，改变原数组，返回新数组的长度
-- [ ] `reverse()`颠倒数组中元素的顺序，改变原数组，返回该数组
-- [ ] `sort()`对数组元素进行排序，改变原数组，返回该数组
-- [ ] `splice()`从数组中添加/删除项目，改变原数组，返回被删除的元素
+* `pop()` 删除数组最后一个元素，如果数组为空，则不改变数组，返回undefined，改变原数组，返回被删除的元素
+* `push()`向数组末尾添加一个或多个元素，改变原数组，返回新数组的长度
+* `shift()`把数组的第一个元素删除，若空数组，不进行任何操作，返回undefined,改变原数组，返回第一个元素的值
+* `unshift()`向数组的开头添加一个或多个元素，改变原数组，返回新数组的长度
+* `reverse()`颠倒数组中元素的顺序，改变原数组，返回该数组
+* `sort()`对数组元素进行排序，改变原数组，返回该数组
+* `splice()`从数组中添加/删除项目，改变原数组，返回被删除的元素
 
 下面我们通过几个操作来对比一下原始类型和引用类型的区别：
 
@@ -148,9 +132,8 @@ name2 = 'code秘密花园';
 console.log(name); // ConardLi;
 ```
 
-
-
 ![](http://www.conardli.top/img/bl/bl_4_copy.png)
+![](&&&SFLOCALFILEPATH&&&bl_4_copy.png)
 
 内存中有一个变量`name`，值为`ConardLi`。我们从变量`name`复制出一个变量`name2`，此时在内存中创建了一个块新的空间用于存储`ConardLi`，虽然两者值是相同的，但是两者指向的内存空间完全不同，这两个变量参与任何操作都互不影响。
 
@@ -171,8 +154,6 @@ console.log(obj.name); // code秘密花园
 ### 2.4 比较
 
 当我们在对两个变量进行比较时，不同类型的变量的表现是不同的：
-
-
 ![](http://www.conardli.top/img/bl/bl_6_compare.png)
 
 ```js
@@ -245,13 +226,13 @@ console.log(obj.name); // ConardLi
 
 在原始类型中，有两个类型`Null`和`Undefined`，他们都有且仅有一个值，`null`和`undefined`，并且他们都代表无和空，我一般这样区分它们：
 
-null
+**null**
 
 表示被赋值过的对象，刻意把一个对象赋值为`null`，故意表示其为空，不应有值。
 
 所以对象的某个属性值为`null`是正常的，`null`转换为数值时值为`0`。
 
-undefined
+**undefined**
 
 表示“缺少值”，即此处应有一个值，但还没有定义，
 
@@ -274,7 +255,7 @@ undefined
 
 ### 4.1 Symbol的特性
 
-1.独一无二
+**1.独一无二**
 
 直接使用`Symbol()`创建新的`symbol`变量，可选用一个字符串用于描述。当参数为对象时，将调用对象的`toString()`方法。
 
@@ -298,7 +279,7 @@ var sym2 = Symbol.for('ConardLi');
 console.log(sym1 === sym2); // true
 ```
 
-2.原始类型
+**2.原始类型**
 
 注意是使用`Symbol()`函数创建`symbol`变量，并非使用构造函数，使用`new`操作符会直接报错。
 
@@ -313,7 +294,7 @@ typeof Symbol() === 'symbol'
 typeof Symbol('ConardLi') === 'symbol'
 ```
 
-3.不可枚举
+**3.不可枚举**
 
 当使用`Symbol`作为对象属性时，可以保证对象不会出现重名属性，调用`for...in`不能将其枚举出来，另外调用`Object.getOwnPropertyNames、Object.keys()`也不能获取`Symbol`属性。
 
@@ -337,7 +318,7 @@ Object.getOwnPropertySymbols(obj) // [Symbol(name)]
 
 下面是几个`Symbol`在程序中的应用场景。
 
-应用一：防止XSS
+**应用一：防止XSS**
 
 在`React`的`ReactElement`对象中，有一个`$$typeof`属性，它是一个`Symbol`类型的变量：
 
@@ -377,7 +358,7 @@ let message = { text: expectedTextButGotJSON };
 
 而`JSON`中不能存储`Symbol`类型的变量，这就是防止`XSS`的一种手段。
 
-应用二：私有属性
+**应用二：私有属性**
 
 借助`Symbol`类型的不可枚举，我们可以在类中模拟私有属性，控制变量读写：
 
@@ -396,7 +377,7 @@ class myClass {
 }
 ```
 
-应用三：防止属性污染
+**应用三：防止属性污染**
 
 在某些情况下，我们可能要为对象添加一个属性，此时就有可能造成属性覆盖，用`Symbol`作为对象属性可以保证永远不会出现同名属性。
 
@@ -468,23 +449,23 @@ class myClass {
 
 `0.1`和`0.2`的二进制都是以1100无限循环的小数，下面逐个来看JS帮我们计算所得的结果：
 
-0.1的二进制：
+**0.1的二进制**：
 
 ```js
 0.0001100110011001100110011001100110011001100110011001101
 ```
-0.2的二进制：
+**0.2的二进制**：
 ```js
 0.001100110011001100110011001100110011001100110011001101
 ```
 
-理论上讲，由上面的结果相加应该：：
+**理论上讲，由上面的结果相加应该：**：
 
 ```js
 0.0100110011001100110011001100110011001100110011001100111
 ```
 
-实际JS计算得到的0.1+0.2的二进制
+**实际JS计算得到的0.1+0.2的二进制**
 
 ```js
 0.0100110011001100110011001100110011001100110011001101
@@ -516,11 +497,11 @@ class myClass {
 
 `IEEE754`标准包含一组实数的二进制表示法。它有三部分组成：
 
-- [ ] 符号位
+* 符号位
 
-- [ ] 指数位
+* 指数位
 
-- [ ] 尾数位
+* 尾数位
 
 三种精度的浮点数各个部分位数如下：
 
@@ -580,8 +561,8 @@ class myClass {
 
 事实上有着同样精度问题的计算还有很多，我们无法把他们都记下来，所以当程序中有数字计算时，我们最好用工具库来帮助我们解决，下面是两个推荐使用的开源库：
 
-- [ ] [number-precision](https://github.com/nefe/number-precision)
-- [ ] [mathjs/](https://github.com/josdejong/mathjs/)
+* [number-precision](https://github.com/nefe/number-precision)
+* [mathjs/](https://github.com/josdejong/mathjs/)
 
 ### 5.6 JavaScript能表示的最大数字
 
@@ -601,8 +582,8 @@ JavaScript中`Number.MAX_SAFE_INTEGER`表示最大安全数字,计算结果是`9
 
 我们同样可以用一些开源库来处理大整数：
 
-- [ ] [node-bignum](https://github.com/justmoon/node-bignum)
-- [ ] [node-bigint](https://github.com/substack/node-bigint)
+* [node-bignum](https://github.com/justmoon/node-bignum)
+* [node-bigint](https://github.com/substack/node-bigint)
 
 其实官方也考虑到了这个问题，`bigInt`类型在`es10`中被提出，现在`Chrome`中已经可以使用，使用`bigInt`可以操作超过最大安全数字的数字。
 
