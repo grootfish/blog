@@ -2,7 +2,7 @@
 title: 前端类型判断方法整理
 tags: [javascript]
 categories: [Javascript]
-description: javascript 知识整理
+# description: javascript 知识整理
 ---
 
 # Javascript 类型

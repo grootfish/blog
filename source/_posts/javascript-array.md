@@ -2,7 +2,7 @@
 title: JS数组方法整理
 tags: [javascript]
 categories: [Javascript]
-description: javascript 知识整理
+# description: javascript 知识整理
 ---
 
 # 创建一个数组

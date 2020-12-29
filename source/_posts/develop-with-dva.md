@@ -3,7 +3,7 @@ title: 使用 dva 开发 React 应用
 tags: [javascript, React]
 comments: true    // 是否开启评论
 date: 2018-12-20 14:13:56
-description: 使用dva开发用户管理的 CURD 应用
+# description: 使用dva开发用户管理的 CURD 应用
 ---
 
 ## 约定先行

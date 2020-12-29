@@ -3,7 +3,7 @@ title: 如何使用 npm 管理包
 tags: [node]
 comments: true    // 是否开启评论
 date: 2019-03-30 17:07:35
-description: 如何使用dist-tags & version标记包
+# description: 如何使用dist-tags & version标记包
 ---
 
 > 分布标签（dist-tags）补充语义版本控制（例如，v0.12）。使用它们来组织和标记不同版本的包。除了比 semver 编号更具人性可读性之外，标签还允许发布者更有效地分发他们的包。

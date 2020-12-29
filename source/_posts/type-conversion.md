@@ -4,10 +4,10 @@ tags: [javascript]
 # comments: true    // 是否开启评论
 # date: 2018-12-10 15:28:14
 categories: [javascript,前端基础]
-description: 前端基础
+# description: 前端基础
 ---
 # 类型转换
-- - - -
+----
 
 ## 引用类型
 

@@ -2,8 +2,8 @@
 title: React & Vue 对比
 tags: [框架,React,vue]
 # comments: true    // 是否开启评论
-# date: 2018-12-10 15:28:14
-description: 框架
+date: 2018-12-10 15:28:14
+# description: 框架
 ---
 ## 编写语法
 -	vue推荐的做法是webpack+vue-loader的单文件组件格式

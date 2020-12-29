@@ -2,7 +2,7 @@
 title: 在 React 中使用计算属性
 tags: [javascript,React]
 categories: [React]
-description: 在 React 中使用计算属性
+# description: 在 React 中使用计算属性
 ---
 ## 在 React 中使用计算属性
 

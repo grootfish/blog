@@ -2,7 +2,7 @@
 title: 数据类型
 tags: [javascript]
 categories: [javascript]
-description: Javascript 中的数据类型
+# description: Javascript 中的数据类型
 ---
 
 ## 一、JavaScript数据类型

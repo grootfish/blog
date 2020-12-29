@@ -4,7 +4,7 @@ tags: [Mac]
 comments: true    // 是否开启评论
 date: 2020-05-14 11:01:13\
 categories: [Mac]
-description: 初始化 Mac
+# description: 初始化 Mac
 ---
 
 笔者使用的电脑是 Mac.拿到一台新 Mac 需要装各种环境 & 软件。这篇文章主要做一个记录，减少初始化一台新 Mac 的时间，记录给自己用的，每个人的工作环境都不一样，没有参考性

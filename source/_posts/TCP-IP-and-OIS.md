@@ -3,7 +3,7 @@ title: TCP/IP 协议栈及 OSI 参考模型
 tags: [http]
 comments: true    // 是否开启评论
 date: 2019-01-04 15:35:42
-description: TCP/IP 协议栈及 OSI 参考模型详解
+# description: TCP/IP 协议栈及 OSI 参考模型详解
 ---
 
 ## OSI 参考模型

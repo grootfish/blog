@@ -3,7 +3,7 @@ title: 终端命令和快捷键
 tags: [工具]
 comments: true    // 是否开启评论
 date: 2018-12-10 15:28:14
-description: terminal
+# description: terminal
 ---
 
 ## 前言
